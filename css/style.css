@@ -1,0 +1,114 @@
+body {
+    background-color: #090827;
+    color: #cdbe91;
+    font-family: Helvetica-Neue, Helvetica;
+    font-size: 2rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inv-cont {
+    flex-basis: 25%;
+}
+
+.inv-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comb-cont {
+    flex-basis: 75%;
+}
+
+.comb-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 75%;
+}
+}
+
+
+
+.shop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.items {
+    border: 3px solid #068ea1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px;
+    padding: 12px;
+    
+}
+
+.container {
+    display: flex;
+    margin-top: 6px;
+}
+
+.items > .base-item {
+    margin: 12px;
+}
+
+.combos {
+    display: flex;
+    flex-direction: row;
+    border: 3px solid #068ea1;
+    flex-wrap: wrap;
+    flex-basis: 75%;
+    margin: 12px;
+    padding: 12px;
+}
+
+.inventory {
+    display: flex;
+    border: 3px solid #068ea1;
+    flex-wrap: wrap;
+    flex-basis: 25%;
+    margin: 12px;
+    padding: 12px;
+}
+
+.inv-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    width: 64px;
+    height: 64px;
+    margin: 6px;
+
+}
+
+.combined-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    width: 64px;
+    height: 64px;
+    margin: 6px;
+}
+
+.gray > img{
+    border: 3px dashed #0d0;
+}
+
+.selected > img{
+    border: 3px dashed #0d0;
+}
