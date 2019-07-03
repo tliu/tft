@@ -1,5 +1,5 @@
 const inventory = []
-const combinations = []
+let combinations = []
 let recipes = new Set()
 let oneMoreMap = {}
 
@@ -105,6 +105,7 @@ const addHoverListener = item => {
 const updateCombos = () => {
     const comboDiv = document.getElementById("combos")
     comboDiv.innerHTML = ""
+    combinations = [] 
     if (inventory.length <= 1) {
         oneItemAway()
         return
@@ -136,7 +137,6 @@ const updateCombos = () => {
 const renderOneMore = combos => {
     let h = ""
     for (let [k, v] of Object.entries(oneMoreMap)) {
-        console.log(k)
         const b = `items/${BASE[v]}`
         const c = `items/${COMBINED[k]}`
         h += `<div class="onemore"><img class="small" src=${b}><div class=v-center> makes </div><img class="small" src=${c}></div>`
@@ -153,6 +153,8 @@ const oneItemAway = () => {
     const comb = combinations.map(combo => {
         return parseInt(combo.dataset.id)
     })
+    console.log(inv)
+    console.log(comb)
 
     oneMoreMap = {}
     const combos = new Set()
