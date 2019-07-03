@@ -165,12 +165,14 @@ const oneItemAway = () => {
                     const a = oneMore[i]
                     const b = oneMore[j]
                     const combined = a | b 
-                    if (inv.indexOf(a) == -1) {
-                        oneMoreMap[combined] = a
-                    } else {
-                        oneMoreMap[combined] = b
+                    if (comb.indexOf(combined) == -1) {
+                        if (inv.indexOf(a) == -1) {
+                            oneMoreMap[combined] = a
+                        } else {
+                            oneMoreMap[combined] = b
+                        }
+                        combos.add(combined)
                     }
-                    combos.add(combined)
                 }
             }
         }
