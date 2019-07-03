@@ -158,21 +158,19 @@ const oneItemAway = () => {
     const combos = new Set()
     Object.keys(BASE).forEach(base => {
         id = parseInt(base)
-        if (inv.indexOf(id) == -1) {
-            const oneMore = [id, Array.from(inv)].flat()
-            for (let i = 0; i < oneMore.length - 1; i++) {
-                for (let j = i + 1; j < oneMore.length; j++) {
-                    const a = oneMore[i]
-                    const b = oneMore[j]
-                    const combined = a | b 
-                    if (comb.indexOf(combined) == -1) {
-                        if (inv.indexOf(a) == -1) {
-                            oneMoreMap[combined] = a
-                        } else {
-                            oneMoreMap[combined] = b
-                        }
-                        combos.add(combined)
+        const oneMore = [id, Array.from(inv)].flat()
+        for (let i = 0; i < oneMore.length - 1; i++) {
+            for (let j = i + 1; j < oneMore.length; j++) {
+                const a = oneMore[i]
+                const b = oneMore[j]
+                const combined = a | b 
+                if (comb.indexOf(combined) == -1) {
+                    if (inv.indexOf(a) == -1) {
+                        oneMoreMap[combined] = a
+                    } else {
+                        oneMoreMap[combined] = b
                     }
+                    combos.add(combined)
                 }
             }
         }
