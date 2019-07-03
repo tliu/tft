@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tft
+  template:
+    metadata:
+      labels: 
+        app: tft
+    spec:
+      containers:
+      - image: localhost:32000/tft
+        imagePullPolicy: Always
+        name: tft
+        ports:
+        - containerPort: 80

@@ -1,5 +1,7 @@
 const inventory = []
+const combinations = []
 let recipes = new Set()
+let oneMoreMap = {}
 
 window.addEventListener("load", ev => {
     const items = document.getElementsByClassName("base-item")
@@ -104,6 +106,7 @@ const updateCombos = () => {
     const comboDiv = document.getElementById("combos")
     comboDiv.innerHTML = ""
     if (inventory.length <= 1) {
+        oneItemAway()
         return
     }
     const combos = new Set()
@@ -123,6 +126,55 @@ const updateCombos = () => {
         }
     }
     combos.forEach(combo => {
-        comboDiv.appendChild(combinedItem(combo))
+        const c = combinedItem(combo)
+        combinations.push(c)
+        comboDiv.appendChild(c)
     })
+    oneItemAway()
+}
+
+const renderOneMore = combos => {
+    let h = ""
+    for (let [k, v] of Object.entries(oneMoreMap)) {
+        console.log(k)
+        const b = `items/${BASE[v]}`
+        const c = `items/${COMBINED[k]}`
+        h += `<div class="onemore"><img class="small" src=${b}><div class=v-center> makes </div><img class="small" src=${c}></div>`
+    }
+    
+    document.getElementById("onemore").innerHTML = h
+}
+
+const oneItemAway = () => {
+    const inv = inventory.map(item => {
+        return parseInt(item.dataset.id)
+    })
+
+    const comb = combinations.map(combo => {
+        return parseInt(combo.dataset.id)
+    })
+
+    oneMoreMap = {}
+    const combos = new Set()
+    Object.keys(BASE).forEach(base => {
+        id = parseInt(base)
+        if (inv.indexOf(id) == -1) {
+            const oneMore = [id, Array.from(inv)].flat()
+            for (let i = 0; i < oneMore.length - 1; i++) {
+                for (let j = i + 1; j < oneMore.length; j++) {
+                    const a = oneMore[i]
+                    const b = oneMore[j]
+                    const combined = a | b 
+                    if (inv.indexOf(a) == -1) {
+                        oneMoreMap[combined] = a
+                    } else {
+                        oneMoreMap[combined] = b
+                    }
+                    combos.add(combined)
+                }
+            }
+        }
+    })
+
+    renderOneMore(combos)
 }

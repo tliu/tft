@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress-tft
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: t5.asuscomm.com
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: tft
+            servicePort: 80

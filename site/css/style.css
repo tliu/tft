@@ -37,8 +37,11 @@ body {
     justify-content: center;
     flex-basis: 75%;
 }
-}
 
+
+.small {
+    font-size: 1rem;
+}
 
 
 .shop {
@@ -111,4 +114,23 @@ body {
 
 .selected > img{
     border: 3px dashed #0d0;
+}
+
+.onemore {
+    margin: 12px;
+    font-size: 1.0rem;
+}
+
+img.small {
+    width: 48px;
+    height: 48px;
+}
+
+.v-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
